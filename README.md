@@ -12,7 +12,7 @@ Installation
 Follow the steps below to get the project running locally:
 
 1. Clone the repository
-git clone https://githu b.com/yourusername/ReadingList.git
+git clone https://github.com/yourusername/ReadingList.git
 cd ReadingList
 
 2. Install dependencies
