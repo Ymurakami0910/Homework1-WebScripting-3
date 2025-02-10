@@ -13,11 +13,15 @@ const books = [
 // middleware: Find book by ID
 function findBookById(req, res, next) {
     const requestedId = parseInt(req.params.id); // acquire book ID
+
     const bookData = books.find(b => b.id === requestedId); // find the book by ID
+    // Use Array.find to get the book with the matching id or undefined
     
+    // If the reminder is found, send it back as a response
     if (bookData) {
         req.book = bookData; // attach book data to the request
         next(); // continue to the next middleware/handler
+    // Else set the Not Found status and send a message    
     } else {
         res.status(404).send('Book not found'); // book not found
     }
@@ -59,9 +63,10 @@ router.put('/books/:id', findBookById, (req, res) => {
 
 // delete a book via DELETE
 router.delete('/books/:id', findBookById, (req, res) => {
+     // If the reminder is not found, requestData will be undefined
     const index = books.indexOf(req.book); // find the index of the book to delete
     if (index !== -1) {
-        books.splice(index, 1); // remove the book from the array
+        books.splice(index, 1);  // Find the index of the reminder in the array and remove it
         res.status(204).send('Book deleted'); // respond with No Content (204)
     } else {
         res.status(404).send('Book not found'); // book not found
