@@ -21,6 +21,7 @@ function findBookById(req, res, next) {
     if (bookData) {
         req.book = bookData; // attach book data to the request
         next(); // continue to the next middleware/handler
+        // btw if you forget 'next' a clint won't receive a response
     // Else set the Not Found status and send a message    
     } else {
         res.status(404).send('Book not found'); // book not found

@@ -21,6 +21,9 @@ const bodyParser = require('body-parser');
 // Middleware - Middleware parses data	
 // Response - Server responds
 
+// Middleware
+app.use(express.static('public')); // Serve static files from the public folder
+
 // Parse all incoming requests
 app.use(bodyParser.json());
 // This allows JSON data (POST/PUT requests) sent by clients to be automatically 
@@ -40,4 +43,5 @@ app.listen(PORT, () => {
 });
 // Waits for the server on the port number (3000) specified in PORT.
 // When the server starts, a message is displayed in console.log.
+
 
