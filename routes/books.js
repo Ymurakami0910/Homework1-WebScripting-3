@@ -17,7 +17,7 @@ function findBookById(req, res, next) {
     const bookData = books.find(b => b.id === requestedId); // find the book by ID
     // Use Array.find to get the book with the matching id or undefined
     
-    // If the reminder is found, send it back as a response
+    // If the book is found, send it back as a response
     if (bookData) {
         req.book = bookData; // attach book data to the request
         next(); // continue to the next middleware/handler

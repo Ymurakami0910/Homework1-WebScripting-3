@@ -21,10 +21,10 @@ const bodyParser = require('body-parser');
 // Middleware - Middleware parses data	
 // Response - Server responds
 
-// Middleware
+// middleware
 app.use(express.static('public')); // Serve static files from the public folder
 
-// Parse all incoming requests
+// parse all incoming requests
 app.use(bodyParser.json());
 // This allows JSON data (POST/PUT requests) sent by clients to be automatically 
 // parsed and stored in req.body.
