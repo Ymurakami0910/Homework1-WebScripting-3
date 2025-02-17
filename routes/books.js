@@ -24,7 +24,8 @@ function findBookById(req, res, next) {
         // btw if you forget 'next' a clint won't receive a response
     // Else set the Not Found status and send a message    
     } else {
-        res.status(404).send('Book not found'); // book not found
+        res.status(404).json({ error: "Book not found" });  // book not found, 
+        // instead of sending plain text, return a structured JSON response for consistency
     }
 }
 
@@ -68,9 +69,9 @@ router.delete('/books/:id', findBookById, (req, res) => {
     const index = books.indexOf(req.book); // find the index of the book to delete
     if (index !== -1) {
         books.splice(index, 1);  // Find the index of the reminder in the array and remove it
-        res.status(204).send('Book deleted'); // respond with No Content (204)
+        res.status(200).json({ message: "Book deleted successfully" });  // respond success
     } else {
-        res.status(404).send('Book not found'); // book not found
+        res.status(404).json({ error: "Book not found" });  // book not found,  // book not found
     }
 });
 
